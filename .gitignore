@@ -1,0 +1,13 @@
+# Created by .ignore support plugin (hsz.mobi)
+### macos, intellij
+.DS_Store
+.idea
+idea/*
+*.impl
+
+
+### Scala template
+*.class
+*.log
+project/target/
+target/
