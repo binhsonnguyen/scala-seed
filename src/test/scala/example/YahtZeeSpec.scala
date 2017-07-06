@@ -14,4 +14,12 @@ class YahtZeeSpec extends FlatSpec with Matchers {
     YahtZee.yahtzee(List(6, 6, 6, 6, 6)) should be (50)
     YahtZee.yahtzee(List(6, 6, 6, 6, 1)) should be (0)
   }
+
+  "fullhouse" should "give sumation if fullhouse else zero" in {
+    YahtZee.fullhouse(List(1, 1, 2, 2, 2)) should be (8)
+    YahtZee.fullhouse(List(1, 2, 1, 2, 2)) should be (8)
+    YahtZee.fullhouse(List(1, 1, 2, 2, 3)) should be (0)
+    YahtZee.fullhouse(List(1, 2, 2, 2, 3)) should be (0)
+    YahtZee.fullhouse(List(1, 2, 2, 3, 3)) should be (0)
+  }
 }
