@@ -13,6 +13,19 @@ object YahtZee {
 
   def smallStraight(ds: Seq[Int]): Int = if (straightUntilLast(of = ds)(from = 1) == 5) 15 else 0
 
+  def fourOfAKind(ds: Seq[Int]): Int = groupsAndCount(ds).find(_._2 == 4).getOrElse((0, 0))._1 * 4
+
+  def threeOfAKind(ds: Seq[Int]): Int = groupsAndCount(ds).find(_._2 == 3).getOrElse((0, 0))._1 * 3
+
+  def twoPair(ds: Seq[Int]): Int = {
+    val pairs = groupsAndCount(ds).filter(_._2 == 2).keys
+    if (pairs.size != 2) 0 else pairs.sum * 2
+  }
+
+  def pair(ds: Seq[Int]): Int = groupsAndCount(ds).filter(_._2 == 2).keys.foldRight(0)((d, p) => if (d > p) d else p) * 2
+
+  def aboveTheLine(ds: Seq[Int])(line: Int): Int = ds.filter(_ == line).sum
+
   @annotation.tailrec
   private def straightUntilLast(of: Seq[Int])(from: Int): Int = of match {
     case last +: Seq() => if (from == last) from else 0

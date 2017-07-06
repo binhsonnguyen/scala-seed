@@ -35,4 +35,43 @@ class YahtZeeSpec extends FlatSpec with Matchers {
     YahtZee.smallStraight(List(1, 2, 3, 4, 4)) should be (0)
   }
 
+  it should "give sumation of Four of a Kind if match else zero" in {
+    YahtZee.fourOfAKind(List(1, 1, 1, 1, 6)) should be (4)
+    YahtZee.fourOfAKind(List(6, 6, 6, 6, 1)) should be (24)
+    YahtZee.fourOfAKind(List(6, 6, 6, 1, 1)) should be (0)
+  }
+
+  it should "give sumation of Three of a Kind if match else zero" in {
+    YahtZee.threeOfAKind(List(1, 1, 1, 6, 6)) should be (3)
+    YahtZee.threeOfAKind(List(6, 6, 6, 1, 1)) should be (18)
+    YahtZee.threeOfAKind(List(6, 6, 4, 1, 1)) should be (0)
+    YahtZee.threeOfAKind(List(6, 6, 6, 6, 1)) should be (0)
+    YahtZee.threeOfAKind(List(6, 6, 6, 6, 6)) should be (0)
+  }
+
+  it should "give sumation of Two Pair if match else zero" in {
+    YahtZee.twoPair(List(1, 1, 2, 6, 6)) should be (14)
+    YahtZee.twoPair(List(6, 6, 2, 5, 5)) should be (22)
+    YahtZee.twoPair(List(6, 2, 2, 6, 6)) should be (0)
+    YahtZee.twoPair(List(6, 6, 6, 6, 6)) should be (0)
+    YahtZee.twoPair(List(1, 2, 3, 4, 5)) should be (0)
+  }
+
+  it should "give sumation of best Pair if match else zero" in {
+    YahtZee.pair(List(1, 1, 2, 6, 6)) should be (12)
+    YahtZee.pair(List(2, 2, 2, 5, 5)) should be (10)
+    YahtZee.pair(List(1, 2, 3, 4, 6)) should be (0)
+    YahtZee.pair(List(5, 4, 3, 2, 6)) should be (0)
+  }
+
+  it should "give sumation of line" in {
+    YahtZee.aboveTheLine(List(4, 0, 0, 0, 0))(4) should be (4)
+    YahtZee.aboveTheLine(List(4, 0, 4, 0, 0))(4) should be (8)
+    YahtZee.aboveTheLine(List(4, 4, 4, 4, 4))(4) should be (20)
+    YahtZee.aboveTheLine(List(1, 2, 3, 6, 5))(4) should be (0)
+
+    YahtZee.aboveTheLine(List(4, 4, 4, 4, 4))(1) should be (0)
+    YahtZee.aboveTheLine(List(6, 6, 6, 6, 6))(6) should be (30)
+  }
+
 }
