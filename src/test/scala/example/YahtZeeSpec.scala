@@ -9,4 +9,9 @@ class YahtZeeSpec extends FlatSpec with Matchers {
     YahtZee.chance(List(6, 6, 6, 6, 6)) should be (30)
   }
 
+  "yahtzee" should "give highest score (50) if yahtzee else zero" in {
+    YahtZee.yahtzee(List(1, 1, 1, 1, 1)) should be (50)
+    YahtZee.yahtzee(List(6, 6, 6, 6, 6)) should be (50)
+    YahtZee.yahtzee(List(6, 6, 6, 6, 1)) should be (0)
+  }
 }
