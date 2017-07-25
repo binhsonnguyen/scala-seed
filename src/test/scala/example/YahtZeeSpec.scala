@@ -1,5 +1,7 @@
 package example
 
+import java.util
+
 import org.scalatest._
 
 class YahtZeeSpec extends FlatSpec with Matchers {
@@ -29,6 +31,7 @@ class YahtZeeSpec extends FlatSpec with Matchers {
 
   "largeStraight" should "give 20 if match" in {
     YahtZee.largeStraight(List(2, 3, 4, 5, 6)) should be (20)
+    YahtZee.largeStraight(List(6, 3, 4, 5, 2)) should be (20)
   }
   it should "give zero if unmatch" in {
     YahtZee.largeStraight(List(2, 3, 4, 5, 5)) should be (0)

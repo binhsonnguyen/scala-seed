@@ -36,7 +36,7 @@ object YahtZee {
     ds.filter(_ == line).sum
 
   @annotation.tailrec
-  private def straightUntilLast(of: Seq[Int])(from: Int): Int = of match {
+  private def straightUntilLast(of: Seq[Int])(from: Int): Int = of.sorted match {
     case last +: Seq() =>
       if (from == last) from else 0
     case head +: tail =>

@@ -9,5 +9,6 @@ idea/*
 ### Scala template
 *.class
 *.log
-project/target/
+project/target
+.history
 target/
